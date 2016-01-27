@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
   </head>
   <body>
 
     <h1>Chess Timer</h1>
     <div id="chessTimer">
       <div id="time1">
-        <button class="timer" id="timerOne">Change</button>
-        <span>4:00</span>
+        <button class="timer" id="timerOneButton">Change</button>
+        <span id="timerOne">240</span>
       </div>
       <div id="time2">
-        <button class="timer" id="timerOne">Change</button>
-        <span>4:00</span>
+        <button class="timer" id="timerTwoButton">Change</button>
+        <span id="timerTwo">240</span>
       </div>
 
-      <button class="reset">Reset</button>
+      <button id="reset">Reset</button>
     </div>
 
+    <script src="index.js"></script>
   </body>
 </html>
