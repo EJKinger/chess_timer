@@ -7,6 +7,13 @@
   document.getElementById('timerTwoButton').addEventListener("click", clickTwo, false);
   document.getElementById('reset').addEventListener("click", reset, false);
   document.getElementById('start').addEventListener("click", start, false);
+  var startable = true;
+
+  var interval = function(){
+    return setInterval(function(){
+      setTimer();
+    }, 1000);
+  };
 
   function setTimer(){
     if (time1.active){
@@ -31,11 +38,16 @@
     time2 = {time: 240, active: false};
     timer1.textContent = toMin(time1.time);
     timer2.textContent = toMin(time2.time);
+    startable = true;
+    clearInterval(interval);
   }
 
   function start(){
-    time1.active = true;
-    interval();
+    if (startable){
+      time1.active = true;
+      interval();
+      startable = false;
+    }
   }
 
   function toMin(seconds){
@@ -49,9 +61,4 @@
     return mins + ':' + secs;
   }
 
-  function interval(){
-    setInterval(function(){
-      setTimer();
-    }, 1000);
-  }
 })();
