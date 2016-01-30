@@ -1,6 +1,6 @@
 (function(){
-  var time1 = {time: 240.0, active: true};
-  var time2 = {time: 240.0, active: false};
+  var time1 = {time: 240, active: true};
+  var time2 = {time: 240, active: false};
   var timer1 = document.getElementById('timerOne');
   var timer2 = document.getElementById('timerTwo');
   document.getElementById('timerOneButton').addEventListener("click", clickOne, false);
@@ -9,9 +9,9 @@
 
   function setTimer(){
     if (time1.active){
-      timer1.textContent = time1.time - 0.1;
+      timer1.textContent = toMin(time1.time--);
     } else if (time2.active){
-      timer2.textContent = time2.time - 0.1;
+      timer2.textContent = toMin(time2.time--);
     }
   }
 
@@ -26,17 +26,24 @@
   }
 
   function reset(){
-    time1 = {time: 240.0, active: true};
-    time2 = {time: 240.0, active: false};
-    timer1.textContent = time1.time;
-    timer2.textContent = time2.time;
+    time1 = {time: 240, active: true};
+    time2 = {time: 240, active: false};
+    timer1.textContent = toMin(time1.time);
+    timer2.textContent = toMin(time2.time);
+  }
+
+  function toMin(seconds){
+    var mins = Math.floor(seconds / 60);
+    var secs = seconds - (mins * 60);
+    if (secs === 0){
+      secs = '00';
+    } else if (secs < 10){
+      secs = '0' + secs;
+    }
+    return mins + ':' + secs;
   }
 
   setInterval(function(){
     setTimer();
-  }, 100);
+  }, 1000);
 })();
-
-var test = function(arg){
-  console.log(arg.textContent);
-};
