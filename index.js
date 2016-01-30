@@ -1,50 +1,51 @@
 (function(){
-  var time1 = {time: 240, active: false};
-  var time2 = {time: 240, active: false};
-  var timer1 = document.getElementById('timerOne');
-  var timer2 = document.getElementById('timerTwo');
+  var timer1 = {time: 240, active: false, el: document.getElementById('timerOne')};
+  var timer2 = {time: 240, active: false, el: document.getElementById('timerTwo')};
   document.getElementById('timerOneButton').addEventListener("click", clickOne, false);
   document.getElementById('timerTwoButton').addEventListener("click", clickTwo, false);
   document.getElementById('reset').addEventListener("click", reset, false);
   document.getElementById('start').addEventListener("click", start, false);
   var startable = true;
+  var intervalID;
 
   var interval = function(){
-    return setInterval(function(){
+    intervalID = setInterval(function(){
       setTimer();
     }, 1000);
   };
 
   function setTimer(){
-    if (time1.active){
-      timer1.textContent = toMin(time1.time--);
-    } else if (time2.active){
-      timer2.textContent = toMin(time2.time--);
+    if (timer1.active){
+      timer1.el.textContent = toMin(timer1.time--);
+    } else if (timer2.active){
+      timer2.el.textContent = toMin(timer2.time--);
     }
   }
 
   function clickOne(){
-    time1.active = false;
-    time2.active = true;
+    timer1.active = false;
+    timer2.active = true;
   }
 
   function clickTwo(){
-    time2.active = false;
-    time1.active = true;
+    timer2.active = false;
+    timer1.active = true;
   }
 
   function reset(){
-    time1 = {time: 240, active: false};
-    time2 = {time: 240, active: false};
-    timer1.textContent = toMin(time1.time);
-    timer2.textContent = toMin(time2.time);
+    timer1.time = 240;
+    timer1.active = false;
+    timer2.time = 240;
+    timer2.active = false;
+    timer1.el.textContent = toMin(timer1.time);
+    timer2.el.textContent = toMin(timer2.time);
     startable = true;
-    clearInterval(interval);
+    clearInterval(intervalID);
   }
 
   function start(){
     if (startable){
-      time1.active = true;
+      timer1.active = true;
       interval();
       startable = false;
     }
