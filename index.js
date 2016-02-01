@@ -11,14 +11,20 @@
   var interval = function(){
     intervalID = setInterval(function(){
       setTimer();
-    }, 1000);
+    }, 10);
   };
 
   function setTimer(){
     if (timer1.active){
-      timer1.el.textContent = toMin(timer1.time--);
+      timer1.el.textContent = toMin(--timer1.time);
+      if (timer1.time === 0){
+        endGame(2);
+      }
     } else if (timer2.active){
-      timer2.el.textContent = toMin(timer2.time--);
+      timer2.el.textContent = toMin(--timer2.time);
+      if (timer2.time === 0){
+        endGame(1);
+      }
     }
   }
 
@@ -60,6 +66,11 @@
       secs = '0' + secs;
     }
     return mins + ':' + secs;
+  }
+
+  function endGame(num){
+    reset();
+    alert('Player ' + num + ' wins!');
   }
 
 })();
