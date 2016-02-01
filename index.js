@@ -10,6 +10,19 @@
   document.getElementById('reset').addEventListener("click", reset, false);
   document.getElementById('start').addEventListener("click", start, false);
 
+  //adds buttons, space bar starts, left and right arrows change
+  document.onkeydown = function(evt){
+    if (evt.keyCode === 32){
+      start();
+    }
+    if (evt.keyCode === 37){
+      clickOne();
+    }
+    if (evt.keyCode === 39){
+      clickTwo();
+    }
+  };
+
   //startable variable prevents multiple clicks of start button from starting separte intervals
   var startable = true;
 

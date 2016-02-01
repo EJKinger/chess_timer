@@ -6,19 +6,36 @@
   </head>
   <body>
 
-    <h1>Chess Timer</h1>
-    <div id="chessTimer">
-      <div id="time1">
-        <button class="timer" id="timerOneButton">Change</button>
-        <span id="timerOne">4:00</span>
-      </div>
-      <div id="time2">
-        <button class="timer" id="timerTwoButton">Change</button>
-        <span id="timerTwo">4:00</span>
-      </div>
+    <h1 class="title">Chess Timer!</h1>
 
+    <div id="chessTimer">
+      <div class="row">
+        <div id="time1">
+          <h3>Player 1!</h3>
+          <h2 class="time" id="timerOne">4:00</h2>
+          <button class="timer" id="timerOneButton">Change</button>
+        </div>
+
+        <div>
+          <img id="bolt" src="bolt.png">
+        </div>
+
+        <div id="time2">
+          <h3>Player 2!</h3>
+          <h2 class="time" id="timerTwo">4:00</h2>
+          <button class="timer" id="timerTwoButton">Change</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="management">
       <button id="reset">Reset</button>
       <button id="start">Start</button>
+    </div>
+
+    <div id="instructions">
+      <img id="keys" src="keys.png">
+      <p>*Use Space to start and L/R arrows to change timer!
     </div>
 
     <script src="index.js"></script>

@@ -1,4 +1,78 @@
-h1 {
+body {
+  background-color: #cc0000;
+}
+
+h1, h2, h3 {
+  margin: 5px;
+  color: white;
+  font-size: 4em;
+  font-family: BankFuturistic;
   font-weight: bold;
+  font-style: italic;
   text-align: center;
+  -ms-transform: rotate(-5deg);
+  -webkit-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+
+h3 {
+  font-size: 1em;
+}
+
+button {
+  font-size: 2em;
+  width: 150px;
+  height: 60px;
+  border-radius: 10px;
+}
+
+.title {
+  margin: 40px 0 40px 0;
+}
+
+.chessTimer {
+  margin: auto;
+  text-align: center;
+}
+
+.time {
+  font-size: 3em;
+}
+
+#time1 {
+  float: left;
+  text-align: center;
+  width: 45%;
+}
+
+#time2 {
+  float: left;
+  text-align: center;
+  width: 45%;
+}
+
+#bolt {
+  float: left;
+  max-height: 300px;
+  max-width: 10%;
+}
+
+#management {
+  width: 100%;
+  display: inline-block;
+  margin-top: 25px;
+  text-align: center;
+}
+
+#instructions {
+  color: white;
+  text-align: center;
+  font-size: .5em;
+}
+
+#keys {
+  max-width: 150px;
+  display: block;
+  margin: auto;
+  margin-top: 50px;
 }
