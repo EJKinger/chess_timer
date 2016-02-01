@@ -13,6 +13,7 @@
   //adds buttons, space bar starts, left and right arrows change
   document.onkeydown = function(evt){
     if (evt.keyCode === 32){
+      evt.preventDefault();
       start();
     }
     if (evt.keyCode === 37){
