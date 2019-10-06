@@ -28,7 +28,7 @@
 
   //stores the id of the interval
   var intervalID;
-  
+
   //when change button one is clicked
   function clickOne(){
     timer1.active = false;
